@@ -1,0 +1,12 @@
+{
+  "name": "Pihkura.Pooling.EditorTests",
+  "references": [
+    "Pihkura.Pooling"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

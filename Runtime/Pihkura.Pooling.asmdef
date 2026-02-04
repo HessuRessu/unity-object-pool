@@ -1,0 +1,14 @@
+{
+    "name": "Pihkura.Pooling",
+    "rootNamespace": "Pihkura.Pooling",
+    "references": [ ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

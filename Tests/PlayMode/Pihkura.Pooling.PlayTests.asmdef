@@ -1,0 +1,9 @@
+{
+  "name": "Pihkura.Pooling.PlayTests",
+  "references": [
+    "Pihkura.Pooling"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "com.pihkura.unity-object-pool",
+  "version": "1.0.0",
+  "displayName": "Lightweight Object Pooling for Unity",
+  "description": "Lightweight, type-safe object pooling framework for Unity with lifetime support and extensible poolable behaviours.",
+  "unity": "6000.0",
+  "keywords": [
+    "object-pool",
+    "pooling",
+    "performance",
+    "optimization",
+    "runtime",
+    "memory",
+    "lifetime",
+    "effects",
+    "particles",
+    "audio",
+    "utility"
+  ],
+  "author": {
+    "name": "Hessu",
+    "email": "hessu81@outlook.com"
+  },
+  "documentationUrl": "https://github.com/HessuRessu/unity-object-pool",
+  "changelogUrl": "https://github.com/HessuRessu/unity-object-pool/releases",
+  "licensesUrl": "https://github.com/HessuRessu/unity-object-pool/blob/main/LICENSE"
+}
