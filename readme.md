@@ -10,13 +10,9 @@ This package provides a small but robust pooling architecture designed for runti
 
 The system focuses on clarity, explicit ownership, and extensibility rather than large feature sets.
 
----
-
 ## Compatibility
 
 This package has been implemented and tested with **Unity v6000.0** and **Universal Render Pipeline v17.0.4**.
-
----
 
 ## Features
 
@@ -28,8 +24,6 @@ This package has been implemented and tested with **Unity v6000.0** and **Univer
 - No per-frame allocations
 - Extensible `BasePoolable` behaviour model
 - Built-in library of common poolable wrappers
-
----
 
 ## Installation (UPM)
 
@@ -49,8 +43,6 @@ Or add via Package Manager:
 2. Click **+ → Add package from git URL**  
 3. Paste:  
    `https://github.com/HessuRessu/unity-object-pool.git`
-
----
 
 ## Core Concept
 
@@ -72,8 +64,6 @@ The pool key is the **concrete C# type**, ensuring:
 - Compile-time safety
 - No runtime identifiers
 - No accidental cross-pooling
-
----
 
 ## PoolableContext
 
@@ -105,8 +95,6 @@ Context contains:
 
 Negative lifetime means infinite.
 
----
-
 ## Minimal Usage Example
 
 ```csharp
@@ -121,8 +109,6 @@ Return when no longer needed:
 line.Return(false);
 ```
 
----
-
 ## BasePoolable Responsibilities
 
 `BasePoolable` handles:
@@ -135,8 +121,6 @@ Derived classes are responsible for:
 - Deactivating GameObject in `OnReturned()`
 
 This design allows fade-outs, tweens, and custom exit behaviour.
-
----
 
 ## Built-in Library Poolables
 
@@ -152,8 +136,6 @@ The package includes several ready-to-use poolable wrappers:
 - `PoolableLight`
 
 These depend only on Unity components and can be used directly.
-
----
 
 ## Creating Custom Poolables
 
@@ -180,8 +162,6 @@ public sealed class MyCustomPoolable : BasePoolable
 
 Add the prefab to `PoolProvider.presets`.
 
----
-
 ## Architecture Overview
 
 ```
@@ -201,15 +181,11 @@ Design goals:
 - Easy debugging
 - Predictable behaviour
 
----
-
 ## Performance Characteristics
 
 - No allocations during borrow/return
 - O(1) average stack access
 - Suitable for large numbers of transient objects
-
----
 
 ## Limitations (By Design)
 
@@ -218,8 +194,6 @@ Design goals:
 - No addressable integration
 
 These can be layered on top without changing core architecture.
-
----
 
 ## License
 
