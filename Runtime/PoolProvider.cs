@@ -130,6 +130,18 @@ namespace Pihkura.Pooling
         }
 
         /// <summary>
+        /// Returns all instances back to the reserve stack.
+        /// </summary>
+        /// <param name="immediate">If true, object is immediately disabled without calling <see cref="OnReturned"/>.</param>
+        public void ReturnAll(bool immediate)
+        {
+            BasePoolable[] poolables = GameObject.FindObjectsByType<BasePoolable>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
+            foreach (BasePoolable poolable in poolables)
+                if (poolable.IsActive)
+                    poolable.Return(immediate);
+        }
+
+        /// <summary>
         /// Pre-creates instances according to preset configuration.
         /// </summary>
         private void Prewarm()
