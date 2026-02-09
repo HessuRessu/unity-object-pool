@@ -1,6 +1,6 @@
 # Lightweight Object Pooling for Unity
 
-Lightweight, type-safe object pooling framework for Unity with lifetime support and extensible poolable behaviours.
+Lightweight, type-safe object pooling system for Unity with extensible poolable behaviours.
 
 This package provides a small but robust pooling architecture designed for runtime-heavy projects where:
 - GC allocations must be avoided
