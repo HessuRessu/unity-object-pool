@@ -1,5 +1,6 @@
 using System;
 using Pihkura.Pooling.Implementations;
+using UnityEngine;
 
 namespace Pihkura.Pooling.Data
 {
@@ -14,6 +15,11 @@ namespace Pihkura.Pooling.Data
         /// Prefab instance used as the factory source for this poolable type.
         /// </summary>
         public BasePoolable prefab;
+
+        /// <summary>
+        /// Override parent transform for poolable prefab.
+        /// </summary>
+        public Transform overrideParent;
 
         /// <summary>
         /// Number of instances created during provider prewarm.

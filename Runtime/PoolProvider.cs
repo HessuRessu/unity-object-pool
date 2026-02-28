@@ -101,8 +101,12 @@ namespace Pihkura.Pooling
             {
                 if (this.presets[i].prefab is T typedCandidate)
                 {
-                    poolable = Instantiate(typedCandidate, this.poolParent, false);
-                    poolable.Initialize(this);
+                    if (this.presets[i].overrideParent != null)
+                        poolable = Instantiate(typedCandidate, this.presets[i].overrideParent, false);
+                    else
+                        poolable = Instantiate(typedCandidate, this.poolParent, false);
+
+                    poolable.Initialize(this, this.presets[i]);
                     return true;
                 }
             }
@@ -150,8 +154,10 @@ namespace Pihkura.Pooling
             {
                 for (int n = 0; n < this.presets[i].prewarmCount; n++)
                 {
-                    BasePoolable poolable = Instantiate(this.presets[i].prefab, this.poolParent, false);
-                    poolable.Initialize(this);
+                    BasePoolable poolable = this.presets[i].overrideParent != null
+                        ? Instantiate(this.presets[i].prefab, this.presets[i].overrideParent, false)
+                        : Instantiate(this.presets[i].prefab, this.poolParent, false);
+                    poolable.Initialize(this, this.presets[i]);
                     poolable.gameObject.SetActive(false);
                     this.Return(poolable);
                 }

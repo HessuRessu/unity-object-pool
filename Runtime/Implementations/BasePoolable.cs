@@ -28,6 +28,11 @@ namespace Pihkura.Pooling.Implementations
         /// </summary>
         public PoolableContext Context { get; private set; }
 
+        /// <summary>
+        /// Default parent transform of the poolable.
+        /// </summary>
+        public Transform Parent { get; private set; }
+
         private bool _isReturning;
 
         #region UnityCallbacks
@@ -57,9 +62,11 @@ namespace Pihkura.Pooling.Implementations
         /// Initializes this instance with its owning provider.
         /// </summary>
         /// <param name="provider">Owning <see cref="PoolProvider"/>.</param>
-        public void Initialize(PoolProvider provider)
+        /// <param name="prefab">Originating prefab <see cref="PoolablePrefab"/>.</param>
+        public void Initialize(PoolProvider provider, PoolablePrefab prefab)
         {
             this._provider = provider;
+            this.Parent = prefab.overrideParent;
         }
 
         /// <summary>
@@ -77,10 +84,14 @@ namespace Pihkura.Pooling.Implementations
             this.transform.rotation = context.rotation;
             this.transform.localScale = context.scale == default ? Vector3.one : context.scale;
 
+            Transform defaultParent = this.Parent != null 
+                ? this.Parent 
+                : this._provider.poolParent;
+
             if (context.parent != null)
                 this.transform.SetParent(context.parent, true);
-            else if (this.transform.parent != this._provider.poolParent)
-                this.transform.SetParent(this._provider.poolParent, true);
+            else if (this.transform.parent != defaultParent)
+                this.transform.SetParent(defaultParent, true);
 
             this.Timer = 0f;
             this._isReturning = false;

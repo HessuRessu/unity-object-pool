@@ -16,7 +16,7 @@ namespace Pihkura.Pooling.Abstractions
         /// Initializes this instance with its owning provider.
         /// Called exactly once after instantiation.
         /// </summary>
-        void Initialize(PoolProvider provider);
+        void Initialize(PoolProvider provider, PoolablePrefab prefab);
 
         /// <summary>
         /// Borrows this object from the pool using the provided context.
