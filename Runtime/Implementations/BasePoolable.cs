@@ -33,6 +33,11 @@ namespace Pihkura.Pooling.Implementations
         /// </summary>
         public Transform Parent { get; private set; }
 
+        /// <summary>
+        /// Callback action for on returned.
+        /// </summary>
+        public Action<BasePoolable> Returned;
+
         private bool _isReturning;
 
         #region UnityCallbacks
@@ -79,6 +84,9 @@ namespace Pihkura.Pooling.Implementations
             if (this._provider == null)
                 throw new InvalidOperationException("Poolable has not been initialized by PoolProvider.");
 
+            // Resetting retuned callback.
+            this.Returned = null;
+
             this.Context = context;
             this.transform.position = context.position;
             this.transform.rotation = context.rotation;
@@ -116,6 +124,7 @@ namespace Pihkura.Pooling.Implementations
             }
 
             this._isReturning = true;
+            this.Returned?.Invoke(this);
             this.OnReturned();
             this.Context = default;
         }
