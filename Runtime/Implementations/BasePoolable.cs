@@ -145,6 +145,15 @@ namespace Pihkura.Pooling.Implementations
         }
 
         /// <summary>
+        /// Manual return hook if not using gameObject.active as lifecycle hook.
+        /// </summary>
+        public void ManualReturn()
+        {
+            this.IsActive = false;
+            this._provider.Return(this);
+        }
+
+        /// <summary>
         /// Called after Borrow.
         /// Derived classes should activate the GameObject here
         /// (gameObject.SetActive(true)).
