@@ -48,6 +48,17 @@ namespace Pihkura.Pooling.Data
         public static PoolableContext WithInfinity(Vector3 position, Quaternion rotation)
             => WithInfinity(position, rotation, Color.black);
 
+
+        /// <summary>
+        /// Creates a context with infinite lifetime.
+        /// </summary>
+        /// <param name="position">World-space position.</param>
+        /// <param name="scale">World-space scale.</param>
+        /// <param name="rotation">World-space rotation.</param>
+        /// <returns>Initialized <see cref="PoolableContext"/> with infinite lifetime.</returns>
+        public static PoolableContext WithInfinity(Vector3 position, Vector3 scale, Quaternion rotation)
+            => WithInfinity(position, scale, rotation, Color.black);
+
         /// <summary>
         /// Creates a context with infinite lifetime.
         /// </summary>
@@ -56,11 +67,21 @@ namespace Pihkura.Pooling.Data
         /// <param name="color">Color for poolable.</param>
         /// <returns>Initialized <see cref="PoolableContext"/> with infinite lifetime.</returns>
         public static PoolableContext WithInfinity(Vector3 position, Quaternion rotation, Color color)
+            => WithInfinity(position, Vector3.one, rotation, color);
+
+        /// Creates a context with infinite lifetime.
+        /// </summary>
+        /// <param name="position">World-space position.</param>
+        /// <param name="scale">World-space scale.</param>
+        /// <param name="rotation">World-space rotation.</param>
+        /// <param name="color">Color for poolable.</param>
+        /// <returns>Initialized <see cref="PoolableContext"/> with infinite lifetime.</returns>
+        public static PoolableContext WithInfinity(Vector3 position, Vector3 scale, Quaternion rotation, Color color)
         {
             return new PoolableContext()
             {
                 lifeTime = -1f,
-                scale = Vector3.one,
+                scale = scale,
                 position = position,
                 rotation = rotation,
                 color = color,
